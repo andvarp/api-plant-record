@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
     // Locate the views
     app.set('views', __dirname + '/dist/views');
-    
+
     // Locate the assets
     app.use(express.static(__dirname + '/dist/assets'));
 
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV === 'production') {
 
     // Locate the views
     app.set('views', __dirname + '/views');
-    
+
     // Locate the assets
     app.use(express.static(__dirname + '/assets'));
 }
@@ -61,6 +61,11 @@ app.get('/', function(request, response, next) {
     response.render('index');
 });
 
+
+// Index Page
+app.get('/api', function(request, response, next) {
+    response.json({test:"test"});
+});
 
 /*
  * Start it up
