@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                 ],
             },
             express: {
-                files:  [ 'app.js', '!**/node_modules/**', '!Gruntfile.js' ],
+                files:  [ 'app.js', 'api/**/*', '!**/node_modules/**', '!Gruntfile.js' ],
                 tasks:  [ 'express:dev' ],
                 options: {
                     nospawn: true // Without this option specified express won't be reloaded
@@ -268,7 +268,7 @@ module.exports = function (grunt) {
         'express:dev',
         'watch'
     ]);
-    
+
 
     // Build
     grunt.registerTask('build', 'Build production ready assets and views.', [
