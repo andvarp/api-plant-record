@@ -70,7 +70,7 @@ app.set('view engine', 'handlebars');
  */
 
 //Log all request
-app.all(/.*/, api.all);
+//app.all(/.*/, api.all);
 
 // Index Page
 app.get('/', function(request, response, next) {
