@@ -20,11 +20,9 @@ var hbs;
 
 // For gzip compression
 app.use(express.compress());
-
-app.use(express.urlencoded());
-
-app.use(express.cookieParser());
-app.use(express.session({secret: '1234567890QWERTY'}));
+//app.use(express.urlencoded());
+//app.use(express.cookieParser());
+//app.use(express.session({secret: '1234567890QWERTY'}));
 
 // app.use(express.basicAuth('testUser', 'testPass'));
 
@@ -81,14 +79,14 @@ app.get('/', function(request, response, next) {
 app.get('/api', api.api);
 app.get('/api/test', api.test);
 
-app.get('/api/plants', api.plant.getAll);
-app.post('/api/plant', api.plant.add);
-app.get('/api/plant/:id', api.plant.getSingle);
-app.post('/api/plant/:id', api.plant.saveSingle);
-app.delete('/api/plant/:id', api.plant.deleteSingle);
+// app.get('/api/plants', api.plant.getAll);
+// app.post('/api/plant', api.plant.add);
+// app.get('/api/plant/:id', api.plant.getSingle);
+// app.post('/api/plant/:id', api.plant.saveSingle);
+// app.delete('/api/plant/:id', api.plant.deleteSingle);
 
-app.post('/login', api.user.login);
-app.get('/logout', api.user.logout);
+// app.post('/login', api.user.login);
+// app.get('/logout', api.user.logout);
 
 
 
