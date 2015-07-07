@@ -8,7 +8,7 @@ var app = express();
 var port = 3000;
 var Parse = require('parse').Parse;
 
-Parse.initialize("mfNNoZ4tOq4X2WJJaUiYtZCPSpqkWkWHz0SqpONh", "JIQVCL8YRsSoIEVguEnhAlGrZCgtplwnvQoATVxs");
+//Parse.initialize("mfNNoZ4tOq4X2WJJaUiYtZCPSpqkWkWHz0SqpONh", "JIQVCL8YRsSoIEVguEnhAlGrZCgtplwnvQoATVxs");
 
 var api = require('./api')(Parse);
 
