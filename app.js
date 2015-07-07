@@ -8,7 +8,15 @@ var app = express();
 var port = 3000;
 var Parse = require('parse').Parse;
 
-//Parse.initialize("mfNNoZ4tOq4X2WJJaUiYtZCPSpqkWkWHz0SqpONh", "JIQVCL8YRsSoIEVguEnhAlGrZCgtplwnvQoATVxs");
+try {
+    Parse.initialize("mfNNoZ4tOq4X2WJJaUiYtZCPSpqkWkWHz0SqpONh", "JIQVCL8YRsSoIEVguEnhAlGrZCgtplwnvQoATVxs");
+    //console.log(Parse)
+}
+catch(err) {
+    console.log("Parse error");
+}
+
+
 
 var api = require('./api')(Parse);
 
@@ -20,9 +28,9 @@ var hbs;
 
 // For gzip compression
 app.use(express.compress());
-//app.use(express.urlencoded());
-//app.use(express.cookieParser());
-//app.use(express.session({secret: '1234567890QWERTY'}));
+app.use(express.urlencoded());
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
 
 // app.use(express.basicAuth('testUser', 'testPass'));
 
@@ -68,7 +76,7 @@ app.set('view engine', 'handlebars');
  */
 
 //Log all request
-//app.all(/.*/, api.all);
+app.all(/.*/, api.all);
 
 // Index Page
 app.get('/', function(request, response, next) {
@@ -79,14 +87,14 @@ app.get('/', function(request, response, next) {
 app.get('/api', api.api);
 app.get('/api/test', api.test);
 
-// app.get('/api/plants', api.plant.getAll);
-// app.post('/api/plant', api.plant.add);
-// app.get('/api/plant/:id', api.plant.getSingle);
-// app.post('/api/plant/:id', api.plant.saveSingle);
-// app.delete('/api/plant/:id', api.plant.deleteSingle);
+app.get('/api/plants', api.plant.getAll);
+app.post('/api/plant', api.plant.add);
+app.get('/api/plant/:id', api.plant.getSingle);
+app.post('/api/plant/:id', api.plant.saveSingle);
+app.delete('/api/plant/:id', api.plant.deleteSingle);
 
-// app.post('/login', api.user.login);
-// app.get('/logout', api.user.logout);
+app.post('/login', api.user.login);
+app.get('/logout', api.user.logout);
 
 
 
