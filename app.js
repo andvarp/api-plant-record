@@ -104,4 +104,4 @@ app.get('/logout', api.user.logout);
  * Start it up
  */
 app.listen(process.env.PORT || port);
-console.log('Express started on port ' + port);
+console.log('Express started on port ' + port); 
